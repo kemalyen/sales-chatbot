@@ -118,7 +118,7 @@ class AIAgent:
                 raise RuntimeError(
                     "OPENAI_API_KEY is not set. Add it to backend/.env to enable the assistant."
                 )
-            self._client = OpenAI(api_key=api_key)
+            self._client = OpenAI(api_key=api_key, base_url=os.getenv("BASE_URL", "https://api.groq.com/openai/v1"))
         return self._client
 
     def chat(
